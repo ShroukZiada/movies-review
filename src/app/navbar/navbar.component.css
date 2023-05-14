@@ -1,0 +1,7 @@
+.navbar-brand:hover {
+    color: var(--lightBgColor);
+}
+
+.navbar-toggler {
+    background-color: var(--lightBgColor) !important;
+}

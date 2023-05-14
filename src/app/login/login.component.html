@@ -1,0 +1,36 @@
+<section id="login" class="d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="sign-in w-75 mx-auto ">
+            <div class="title pb-2 color-secondary font-taj">
+                <h1>Log In</h1>
+            </div>
+            <form class="sign-in" [formGroup]="logInForm">
+                <p class="alert alert-danger small" *ngIf="msgError">
+                    {{ msgError | slice: msgError.indexOf(":") + 1 }}
+                </p>
+                <div class="input-data position-relative mt-3">
+                    <input [ngClass]="{ 'form-control': true, 'is-valid': logInForm.get('email')?.valid,'is-invalid': logInForm.get('email')?.invalid && logInForm.get('email')?.value    }" type="email" placeholder="Enter Your Email:" formControlName="email" />
+                </div>
+                <div class="msg-error small" *ngIf="logInForm.get('email')?.errors && logInForm.get('email')?.touched ">
+                    <p class="text-danger" *ngIf="logInForm.get('email')?.getError('required')"> E-mail Required </p>
+                    <p class="text-danger" *ngIf="logInForm.get('email')?.getError('email')"> In Valid Format E-mail</p>
+                </div>
+                <div class="input-data position-relative mt-3">
+                    <input [ngClass]="{'form-control': true,'is-valid': logInForm.get('password')?.valid,'is-invalid': logInForm.get('password')?.invalid && logInForm.get('password')?.value }" type="password" placeholder="Enter Your Email: " formControlName="password" />
+                </div>
+                <div class="msg-error small" *ngIf=" logInForm.get('password')?.errors &&  logInForm.get('password')?.touched ">
+                    <p class="text-danger" *ngIf="logInForm.get('password')?.getError('required')"> Password Required </p>
+                    <p class="text-danger" *ngIf="logInForm.get('password')?.getError('minlength')"> Min Length 2</p>
+                    <p class="text-danger" *ngIf="logInForm.get('password')?.getError('maxlength')">Max Length 10 </p>
+                    <ul class="text-danger" *ngIf="logInForm.get('password')?.getError('pattern')">
+                        <li>Start A to Z</li>
+                        <li>Write Number Or Char</li>
+                    </ul>
+                </div>
+                <button (click)="submitlogInForm(logInForm)" type="submit" class="btn btn-secondary btn-form font-moc text-uppercase mt-4" [disabled]="logInForm.invalid">LogIn
+        <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i></span>
+      </button>
+            </form>
+        </div>
+    </div>
+</section>

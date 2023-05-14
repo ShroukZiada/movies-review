@@ -1,0 +1,90 @@
+<app-header [headerTrendigMovies]='trendingMovies'>
+</app-header>
+
+<div class="container-fluid">
+
+    <div class="row p-5 gy-4 my-4 justify-content-evenly">
+        <div class="col-md-3 hstack justify-content-center">
+            <div class="title">
+                <div class="brbr my-4 w-50"></div>
+                <h2>
+                    Trending<br/> Movies
+                    <br/> To Watch Now
+                </h2>
+                <p class="secColor">Most Watched Movies By Days</p>
+                <div class="brbr my-4 w-100"></div>
+            </div>
+
+        </div>
+        <div *ngFor="let movie of trendingMovies " class="col-md-3 ">
+            <a [routerLink]="['/moviedetails', movie.id, 'movie']" class=" text-decoration-none px-5 text-white">
+                <div class="card-body  text-center position-relative">
+                    <div class="card-img  position-relative overflow-hidden">
+                        <img [src]="imagePath+movie.poster_path" class="image card-img-top border-0 img-thumbnail bg-transparent position-relative " [alt]="movie.title" [title]="movie.title">
+                    </div>
+                    <div class="card-title px-3 py-3">
+                        <h3 class="h6 small font-moc">{{movie.title}}</h3>
+                        <p class="small card-subtitle  font-taj ">{{movie.overview |overView:0:10}}....</p>
+                    </div>
+                    <div class="overView border position-absolute "><i class="fa-solid fa-star text-warning"></i>{{movie.vote_average | number: '1.2-2'}} </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row p-5 gy-4 my-4 justify-content-evenly">
+        <div class="col-md-3 hstack justify-content-center">
+            <div class="title">
+                <div class="brbr my-4 w-50"></div>
+                <h2>
+                    Trending<br/> Tv`s
+                    <br/> To Watch Now
+                </h2>
+                <p class="secColor">Most Watched Tv`s By Days</p>
+                <div class="brbr my-4 w-100"></div>
+            </div>
+
+        </div>
+        <div *ngFor="let movie of trendingTv" class="col-md-3 ">
+            <a [routerLink]="['/moviedetails', movie.id, 'tv']" class=" text-decoration-none px-5 text-white">
+                <div class="card-body  text-center position-relative">
+                    <div class="card-img  position-relative overflow-hidden">
+                        <img [src]="imagePath+movie.poster_path" class="image card-img-top border-0 img-thumbnail bg-transparent position-relative " [alt]="movie.title" [title]="movie.title">
+                    </div>
+                    <div class="card-title px-3 py-3">
+                        <h3 class="h6 small font-moc">{{movie.name}}</h3>
+                        <p class="small card-subtitle  font-taj ">{{movie.overview |overView:0:10}}....</p>
+                    </div>
+                    <div class="overView border position-absolute "><i class="fa-solid fa-star text-warning"></i>{{movie.vote_average | number: '1.2-2' }} </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row p-5 gy-4 my-4 justify-content-evenly">
+        <div class="col-md-3 hstack justify-content-center">
+            <div class="title">
+                <div class="brbr my-4 w-50"></div>
+                <h2>
+                    Trending<br/> People`s
+                    <br/> To Watch Now
+                </h2>
+                <p class="secColor">Most Watched People`s By Days</p>
+                <div class="brbr my-4 w-100"></div>
+            </div>
+
+        </div>
+        <div *ngFor="let movie of trendingPeople" class="col-md-3 ">
+            <a [routerLink]="['/moviedetails', movie.id, 'person']" class=" text-decoration-none px-5 text-white">
+                <div class="card-body  text-center position-relative">
+                    <div class="card-img  position-relative overflow-hidden">
+                        <img [src]="imagePath+movie.profile_path" class="image card-img-top border-0 img-thumbnail bg-transparent position-relative " [alt]="movie.title" [title]="movie.title">
+                    </div>
+                    <div class="card-title px-3 py-3">
+                        <h3 class="h6 small font-moc">{{movie.name}}</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

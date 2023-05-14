@@ -1,0 +1,90 @@
+<div class="container py-5">
+    <div class="row gy-4 justify-content-evenly py-5">
+        <div class="col-md-3">
+            <div class="card bg-light border-0">
+                <img [src]="imgSrc + (movieDetails.poster_path ?? movieDetails.profile_path)" class="img-thumbnail border-0 bg-transparent" onerror="this.src='./assets/images/img-not.jpg'" [alt]="movieDetails.name ?? movieDetails.title" [title]="movieDetails.name ?? movieDetails.title"
+                />
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="item">
+                <h2 class="item-title mb-3">
+                    {{ movieDetails.title ?? movieDetails.name }}
+                </h2>
+                <ng-container *ngIf="movieDetails.genres">
+                    <ul class="list-unstyled">
+                        <li class="badge badge-cusome" *ngFor="let box of movieDetails.genres">
+                            {{ box.name }}
+                        </li>
+                    </ul>
+                </ng-container>
+
+                <p class="badge badge-cusome" *ngIf="movieDetails.known_for_department ">
+                    {{ movieDetails.known_for_department }}
+                </p>
+                <span class="badge text-bg-warning text-uppercase" *ngIf=" movieDetails.original_language">{{
+          movieDetails.original_language
+        }}</span>
+                <ul class="list-unstyled font-mon mt-2">
+                    <li class="pb-3" *ngIf="movieDetails.vote_average">
+                        Vote :
+                        <span class="vote rounded-1 p-1">
+              {{ movieDetails.vote_average?.toString() | slice: 0:3 }}</span>
+                    </li>
+                    <li class="pb-3" *ngIf="movieDetails.vote_count">
+                        Vote Count :
+                        <span>{{ movieDetails.vote_count }}</span>
+                    </li>
+                    <li class="pb-3" *ngIf="movieDetails.place_of_birth">
+                        place of birth :
+                        <span>{{ movieDetails.place_of_birth }}</span>
+                    </li>
+                    <li class="pb-3" *ngIf="movieDetails.birthday">
+                        birthday :
+                        <span>{{ movieDetails.birthday }}</span>
+                    </li>
+                    <li class="pb-3">
+                        popularity :
+                        <span>{{ movieDetails.popularity }}</span>
+                    </li>
+                    <li class="pb-3">
+                        <span *ngIf="movieDetails.release_date">release date : {{ movieDetails.release_date }}</span >
+            <span *ngIf="movieDetails.first_air_date"
+              >first air date : {{ movieDetails.first_air_date }}</span
+            >
+          </li>
+
+          <li class="pb-3"  *ngIf="movieDetails.created_by">
+            <span
+              >created by :
+              <div class="row g-2">
+                <div *ngFor="let item of movieDetails.created_by" class="col-sm-2">
+                  <div class="card h-100 bg-light border-0">
+                    <img
+                      [src]="imgSrc + item.profile_path"
+                      [alt]="item.name"
+                      [title]="item.name"
+                      onerror=" this.src='./assets/images/R.png'"
+                      class="img-thumbnail border-0 bg-transparent"
+                    />
+                    <h3 class="h6 small text-center my-2 text-dark">{{ item.name }}</h3>
+                  </div>
+                </div>
+              </div>
+            </span>
+                    </li>
+                    <li class="pb-3">
+                        <ng-container *ngIf="movieDetails.overview">
+                            overview :
+                            <p>{{ movieDetails.overview }}</p>
+                        </ng-container>
+                        <ng-container *ngIf="movieDetails.biography">
+                            biography :
+                            <p>{{ movieDetails.biography }}</p>
+                        </ng-container>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container-fluid ">
+    <nav aria-label="Page navigation example " class="d-flex justify-content-center align-items-center ">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" aria-label="Previous" (click)="  pervPage()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li *ngFor="let num of pageNumArray" class="page-item ">
+                <a #link (click)="changePageUrl(link.innerHTML)" class="page-link bg-transparent text-white" [routerLink]="['/movies',num]" routerLinkActive="active">{{ num }}</a
+              >
+            </li>
+      <li class="page-item">
+        <a class="page-link"  aria-label="Next"(click)=" nextPage()">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="row px-5 justify-content-evenly">
+        <div class="col-md-3 hstack justify-content-center">
+            <div class="title">
+                <div class="brbr my-4 w-50"></div>
+                <h2>
+                    Trending<br/> Movies
+                    <br/> To Watch Now
+                </h2>
+                <p class="secColor">Most Watched Movies By Days</p>
+                <div class="brbr my-4 w-100"></div>
+            </div>
+
+        </div>
+        <div *ngFor="let movie of trendingMovies" class="col-md-3 ">
+            <a [routerLink]="['/moviedetails', movie.id, 'movie']" class=" text-decoration-none px-5  text-white">
+                <div class="card-body text-center position-relative">
+                    <div class="card-img  position-relative overflow-hidden">
+                        <img [src]="imagePath+movie.poster_path" class="image card-img-top border-0 img-thumbnail bg-transparent position-relative " [alt]="movie.title" [title]="movie.title">
+                    </div>
+                    <div class="card-title px-3 py-3">
+                        <h3 class="h6 small font-moc">{{movie.title}}</h3>
+                        <p class="small card-subtitle  font-taj ">{{movie.overview |overView:0:10}}....</p>
+                    </div>
+                    <div class="overView border position-absolute "><i class="fa-solid fa-star text-warning"></i>{{movie.vote_average }}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

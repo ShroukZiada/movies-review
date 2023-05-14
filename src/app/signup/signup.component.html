@@ -1,0 +1,73 @@
+<section id="signup" class="d-flex justify-content-center align-items-center">
+    <div class="container py-3">
+        <div class="sign__up--container w-75 mx-auto">
+            <div class="title pb-2 color-secondary font-taj ">
+                <h1>Sign Up</h1>
+            </div>
+            <div *ngIf='msgError' class="alert alert-danger m-2">
+                {{msgError}}
+            </div>
+            <form class="sign-container" [formGroup]="registerForm">
+                <p class="alert alert-danger small" *ngIf="msgError">
+                    {{ msgError | slice: msgError.indexOf(":") + 1 }}
+                </p>
+                <div class="input-data position-relative mt-3">
+                    <input [ngClass]="{'form-control': true,'is-valid': registerForm.get('first_name')?.valid, 'is-invalid':registerForm.get('first_name')?.invalid && registerForm.get('first_name')?.value }" type="text" placeholder=" Enter Your First_Name" formControlName="first_name"
+                    />
+                </div>
+                <div class="msg-error small" *ngIf=" registerForm.get('first_name')?.errors && registerForm.get('first_name')?.touched">
+                    <p class="text-danger" *ngIf="registerForm.get('first_name')?.getError('required')">
+                        First Name Is Required
+                    </p>
+                    <p class="text-danger" *ngIf="registerForm.get('first_name')?.getError('minlength')">
+                        First Name Min Length 2
+                    </p>
+                    <p class="text-danger" *ngIf="registerForm.get('first_name')?.getError('maxlength')">
+                        First Name Max Length 25
+                    </p>
+                </div>
+                <div class="input-data position-relative mt-3">
+                    <input [ngClass]="{ 'form-control': true, 'is-valid': registerForm.get('last_name')?.valid,'is-invalid':registerForm.get('last_name')?.invalid && registerForm.get('last_name')?.value}" type="text" placeholder="Enter Your Last_Name " formControlName="last_name"
+                    />
+                </div>
+                <div class="msg-error small" *ngIf="registerForm.get('last_name')?.errors && registerForm.get('last_name')?.touched ">
+                    <p class="text-danger" *ngIf="registerForm.get('last_name')?.getError('required')"> Last Name Is Required </p>
+                    <p class="text-danger" *ngIf="registerForm.get('last_name')?.getError('minlength')"> Last Name Min Length 2 </p>
+                    <p class="text-danger" *ngIf="registerForm.get('last_name')?.getError('maxlength')"> Last Name Max Length 25</p>
+                </div>
+                <div class="input-data position-relative mt-3">
+                    <input [ngClass]="{ 'form-control': true,  'is-valid': registerForm.get('age')?.valid,  'is-invalid': registerForm.get('age')?.invalid && registerForm.get('age')?.value }" type="number" placeholder="Enter Your Age " formControlName="age" />
+                </div>
+                <div class="msg-error small" *ngIf="registerForm.get('age')?.errors && registerForm.get('age')?.touched">
+                    <p class="text-danger" *ngIf="registerForm.get('age')?.getError('required')"> Age Required </p>
+                    <p class="text-danger" *ngIf="registerForm.get('age')?.getError('min')"> Age Min 10</p>
+                    <p class="text-danger" *ngIf="registerForm.get('age')?.getError('max')"> Age Max 80</p>
+                </div>
+                <div class="input-data position-relative mt-3">
+                    <input [ngClass]="{'form-control': true, 'is-valid': registerForm.get('email')?.valid,  'is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.value }" type="email" placeholder="Enter Your Email " formControlName="email" />
+                </div>
+                <div class="msg-error small" *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched ">
+                    <p class="text-danger" *ngIf="registerForm.get('email')?.getError('required')"> E-mail Required</p>
+                    <p class="text-danger" *ngIf="registerForm.get('email')?.getError('email')"> In Valid Format E-mail</p>
+                </div>
+                <div class="input-data position-relative mt-3">
+                    <input [ngClass]="{ 'form-control': true, 'is-valid': registerForm.get('password')?.valid, 'is-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.value }" type="password" placeholder="Enter Your Password " formControlName="password"
+                    />
+                </div>
+                <div class="msg-error small" *ngIf="registerForm.get('password')?.errors &&registerForm.get('password')?.touched">
+                    <p class="text-danger" *ngIf="registerForm.get('password')?.getError('required')">Password Required </p>
+                    <p class="text-danger" *ngIf="registerForm.get('password')?.getError('minlength')">Min Length 2</p>
+                    <p class="text-danger" *ngIf="registerForm.get('password')?.getError('maxlength')"> Max Length 10</p>
+                    <ul class="text-danger" *ngIf="registerForm.get('password')?.getError('pattern')">
+                        <li>Start A to Z</li>
+                        <li>Write Number Or Char</li>
+                    </ul>
+                </div>
+                <button (click)="submitRegisterForm(registerForm)" type="submit" class="btn btn-secondary btn-form font-moc text-uppercase mt-4" [disabled]="registerForm.invalid">
+    Sign Up
+    <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i></span>
+  </button>
+            </form>
+        </div>
+    </div>
+</section>

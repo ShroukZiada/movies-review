@@ -1,0 +1,28 @@
+<div class="container">
+    <input #refInput (input)="getSearch(refInput.value)" type="search" class="form-control form-control-sm w-50 mx-auto my-5" placeholder="search">
+    <div class="row gy-4 justify-content-evenly py-5">
+
+        <div *ngFor="let movie of trendingMovies" class="col-md-3">
+            <div class="card h-100 bg-light border-0 text-center">
+                <div class="images overflow-hidden" [routerLink]="['/moviedetails', movie.id,      movie.media_type]">
+                    <img class="card-img-top img-thumbnail border-0 bg-transparent" [src]="imagePath + (movie.poster_path ?? movie.profile_path)" onerror="this.src='./assets/images/img-not.jpg'" [alt]="movie.title ?? movie.name" [title]="movie.title ?? movie.name" />
+                </div>
+                <div class="card-body ">
+                    <h2 class="h6 small card-title">
+                        {{ movie.title ?? movie.name }}
+                    </h2>
+                    <p class="card-text" *ngIf="movie.overview">
+                        {{ movie.overview | overView: 0:10 }}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <p class="h6 small text-uppercase">
+                        media type :
+                        <span class="badge text-bg-warning">{{ movie.media_type }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

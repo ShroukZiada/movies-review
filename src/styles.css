@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;300;400;500;600;700&display=swap");
+body {
+    background-color: var(--bgColor);
+    font-family: var(--fontMons);
+    color: var( --fontColor);
+    text-transform: capitalize;
+}
+
+:root {
+    --bgColor: #131722;
+    --bgColorLight: rgb(0 0 0 / 0.5);
+    --lightBgColor: #24baef;
+    --bgTransparent: rgba(36, 186, 239, 0.6);
+    --fontColor: #fff;
+    --secondFontColor: #949cb0;
+    --borderColor: #a8a8a83d;
+    --borderHeight: 1px;
+    --fontMoc: "Mochiy Pop One", sans-serif;
+    --fontTaj: "Tajawal", sans-serif;
+    --fontMons: "Montserrat Alternates", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--fontMons);
+}
+
+p {
+    color: var(--secondFontColor);
+}
+
+a {
+    color: var(--fontColor);
+}
+
+.color-primary {
+    color: var(--bgColor)
+}
+
+.color-secondary {
+    color: var(--lightBgColor)
+}
+
+.font-taj {
+    font-family: var(--fontTaj);
+}
+
+.font-moc {
+    font-family: var(--fontMoc);
+}
+
+.font-mon {
+    font-family: var(--fontMons);
+}
+
+.brbr {
+    height: 1px;
+    background-color: var(--borderColor);
+}
+
+.card-body {
+    background-color: var(--bgColorLight);
+}
+
+.card-subtitle {
+    background-color: var( --bgColor);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-family: var(--fontTaj);
+}
+
+.card-img img {
+    filter: grayscale(0.5);
+    -webkit-filter: grayscale(0.5);
+    height: 100%;
+}
+
+.card-img:hover img {
+    transform: scale(1.2) rotate(5deg);
+    transition: all 500ms;
+    -webkit-transition: all 800ms ease;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+    -webkit-transform: scale(1.2) rotate(5deg);
+    -moz-transform: scale(1.2) rotate(5deg);
+    -ms-transform: scale(1.2) rotate(5deg);
+    -o-transform: scale(1.2) rotate(5deg);
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+}
+
+.overView {
+    padding: 20px 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-top-right-radius: var(--bgTransparent);
+    top: 5px;
+    right: 5px;
+    background-color: var(--borderColor);
+    color: var(--fontColor);
+}
