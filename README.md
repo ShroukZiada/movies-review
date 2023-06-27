@@ -1,5 +1,4 @@
 # movies-review
-https://shroukziada.github.io/movies-review/ 
 
 
 For quick login ....
