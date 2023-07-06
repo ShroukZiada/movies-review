@@ -6,19 +6,19 @@
     </button>
         <div class="collapse navbar-collapse  " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                <li *ngIf="isLogin" class="nav-item">
+                <li *ngIf="!isLogin" class="nav-item">
                     <a class="nav-link active text-white" aria-current="page" routerLink="/home">Home</a>
                 </li>
-                <li *ngIf="isLogin" class="nav-item ">
+                <li *ngIf="!isLogin" class="nav-item ">
                     <a class="nav-link text-white" [routerLink]="['/movies', pageNumberMovie]">Movies</a>
                 </li>
-                <li *ngIf="isLogin" class="nav-item ">
+                <li *ngIf="!isLogin" class="nav-item ">
                     <a class="nav-link text-white" [routerLink]="['/tv', pageNumberTv]">Tv Show</a>
                 </li>
-                <li *ngIf="isLogin" class=" nav-item  ">
+                <li *ngIf="!isLogin" class=" nav-item  ">
                     <a class="nav-link text-white " [routerLink]="['/person',pageNumberPeople]">People</a>
                 </li>
-                <li *ngIf="isLogin" class="nav-item ">
+                <li *ngIf="!isLogin" class="nav-item ">
                     <a class="nav-link text-white " routerLink="/about">About</a>
                 </li>
             </ul>
@@ -33,7 +33,7 @@
                         <i class="fa-brands fa-github text-white"></i>
                     </a>
                 </li>
-                <li class="nav-item py-2 me-3 " *ngIf="isLogin">
+                <li class="nav-item py-2 me-3 " *ngIf="!isLogin">
                     <a routerLink="search"><i class="fa-solid fa-magnifying-glass text-white"></i></a>
                 </li>
                 <li *ngIf="!isLogin" class="nav-item ">
