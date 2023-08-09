@@ -14,12 +14,12 @@ import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
 {path:'', redirectTo:'home', pathMatch:'full'},
-{path:'home' ,component:HomeComponent,title:'Home'},
-{path:'about' ,component:AboutComponent,title:'About'},
-{path:'movies/:num', component:MoviesComponent,title:'Movies'},
-{path:'tv/:num', component:TvShowComponent,title:'TvShow'},
-{path:'person/:num', component:PeopleComponent,title:'People'},
-{path:'moviedetails/:id/:type', component:MoviedetailsComponent,title:'MovieDetails'},
+{path:'home' ,canActivate:[AuthGuard],component:HomeComponent,title:'Home'},
+{path:'about' ,canActivate:[AuthGuard],component:AboutComponent,title:'About'},
+{path:'movies/:num', canActivate:[AuthGuard],component:MoviesComponent,title:'Movies'},
+{path:'tv/:num',canActivate:[AuthGuard], component:TvShowComponent,title:'TvShow'},
+{path:'person/:num', canActivate:[AuthGuard],component:PeopleComponent,title:'People'},
+{path:'moviedetails/:id/:type',canActivate:[AuthGuard], component:MoviedetailsComponent,title:'MovieDetails'},
 {path:'login', component:LoginComponent,title:'Login'},
 {path:'signup', component:SignupComponent,title:'Signup'},
 {path:'search', component:SearchComponent,title:'SearchMovies'},
