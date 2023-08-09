@@ -23,10 +23,10 @@ export class AuthService {
 
   }
   registerForm(formData: object): Observable<any> {
-    return this._HttpClient.post(`https://sticky-note-fe.vercel.app/signup`, formData);
+    return this._HttpClient.post(`https://movies-api.routemisr.com/signup`, formData);
   }
   logInForm(formData: object): Observable<any> {
-    return this._HttpClient.post(`https://sticky-note-fe.vercel.app/signin`, formData);
+    return this._HttpClient.post(`https://movies-api.routemisr.com/signin`, formData);
   }
 
   logOut(){
